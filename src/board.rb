@@ -2,7 +2,7 @@ require 'awesome_print'
 require_relative 'block'
 
 class Board
-  attr_reader :blocks, :body
+  attr_reader :blocks, :body, :max_x, :max_y
   def initialize(options={})
     # The board defaults to an 8 * 20 grid
     @max_x = options[:max_width] || defaults[:max_width]

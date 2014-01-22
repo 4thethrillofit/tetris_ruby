@@ -12,6 +12,14 @@ describe Board do
     it "initializes with no blocks" do
       expect(board.blocks).to be_empty
     end
+
+    it "initializes with a max_x reader attr" do
+      expect(board.max_x).to eq board.body.first.length
+    end
+
+    it "initializes with a max_y reader attr" do
+      expect(board.max_y).to eq board.body.length
+    end
   end
 
   describe '#add_block' do

@@ -15,15 +15,18 @@ class Player
     # If the player does not initiate game, it is automatically invoked w/ default options
     initiate_game unless @game
 
-    10.times do
+    until @game.is_over?
       move = possible_moves.sample
-      rand(5).times do
-        @game.send(move)
-      end
+      move_number = @game.board.max_x / 2 + 1
+
+      rand(move_number).times { @game.send(move) }
       @game.drop_block
       @game.render
+
       sleep(1)
     end
+
+    puts "Game over."
   end
 
   private
