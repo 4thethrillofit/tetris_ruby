@@ -19,7 +19,10 @@ class Player
       move = possible_moves.sample
       move_number = @game.board.max_x / 2 + 1
 
-      rand(move_number).times { @game.send(move) }
+      rand(move_number).times do |n|
+        puts "Moving to the #{move} #{n} times"
+        @game.send(move)
+      end
       @game.drop_block
       @game.render
 

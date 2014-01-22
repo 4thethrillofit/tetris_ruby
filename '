@@ -24,29 +24,18 @@ describe Player do
       board = Game.new.board
       board.add_block
       board.move_block_right
-      board.move_block_right
-      board.drop_block
-
-      board.add_block
-      board.move_block_left
       board.drop_block
 
       board.add_block
       board.drop_block
-      board.render
 
       board.add_block
-      board.move_block_right
-      board.move_block_right
       board.move_block_right
       board.drop_block
 
       board.add_block
       board.move_block_right
       board.move_block_right
-      board.move_block_right
-      board.move_block_left
-      # board.move_block_left
       board.drop_block
       board.render
     end

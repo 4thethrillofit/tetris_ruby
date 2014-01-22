@@ -15,11 +15,11 @@ class Game
   end
 
   def is_over?
-    # TODO: game mechanic
     return false if board.blocks.length == 1
 
     last_dropped_block = board.blocks[board.blocks.length - 2]
-    last_dropped_block.y == 0 && !last_dropped_block.ready_to_drop ? true : false
+
+    last_dropped_block.y == 0 && !last_dropped_block.ready_to_drop
   end
 
   def drop_block

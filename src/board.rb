@@ -30,12 +30,12 @@ class Board
 
   def move_block_left
     have_block_to_drop?
-    @blocks.last.x -= 1 unless at_boundary?
+    @blocks.last.x -= 1 unless at_left_boundary?
   end
 
   def move_block_right
     have_block_to_drop?
-    @blocks.last.x += 1 unless at_boundary?
+    @blocks.last.x += 1 unless at_right_boundary?
   end
 
   private
@@ -94,8 +94,11 @@ class Board
     @blocks[-1] = drop_block
   end
 
-  def at_boundary?
-    return true if blocks.last.x == 0 || blocks.last.x == @body.first.length - 2
-    false
+  def at_right_boundary?
+    blocks.last.x == max_x - 2
+  end
+
+  def at_left_boundary?
+    blocks.last.x == 0
   end
 end
