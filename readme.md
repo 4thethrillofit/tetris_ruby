@@ -9,4 +9,4 @@ Right now the AI simply makes random moves until she loses.
 Dependencies
 ==============
 - `rspec` for testing
-- the `awesome_print` gem for nicer rendering. Definitely not necessary. If you wish not to install, please manually remove the dependency in board.rb
+- The `awesome_print` gem for nicer rendering. Definitely not necessary. If you wish not to install, please manually remove the dependency in board.rb
