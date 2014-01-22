@@ -9,17 +9,12 @@ class Game
     game_init__messages
   end
 
-  def run
-    # TODO: game mechanic
-    true until is_over?
-  end
-
   def is_over?
     return false if board.blocks.length == 1
 
     last_dropped_block = board.blocks[board.blocks.length - 2]
 
-    last_dropped_block.y == 0 && !last_dropped_block.ready_to_drop
+    last_dropped_block.y <= 0 && !last_dropped_block.ready_to_drop
   end
 
   def drop_block
