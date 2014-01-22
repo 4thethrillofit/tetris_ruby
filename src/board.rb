@@ -57,6 +57,14 @@ class Board
   def update!
     reset_body!
     @blocks.each do |block|
+      # Check for special cases when updating
+      next if block.ready_to_drop
+      if block.y < 0
+        @body[0][block.x] = 'X'
+        @body[0][block.x+1] = 'X'
+        return
+      end
+
       @body[block.y][block.x] = 'X'
       @body[block.y][block.x+1] = 'X'
       @body[block.y+1][block.x] = 'X'
@@ -64,9 +72,9 @@ class Board
     end
   end
 
-  def block_is_under_drop_block?(drop_block, block)
-    return false if drop_block == block
-    return true if block.x == drop_block.x || block.x+1 == drop_block.x || block.x-1 == drop_block.x
+  def block_under_drop_block?(drop_block, row)
+    return false if blocks.length == 1
+    row[drop_block.x] || row[drop_block.x+1]
   end
 
   def have_block_to_drop?
@@ -75,13 +83,11 @@ class Board
   end
 
   def drop!(drop_block)
-    # We are going to iterate over the blocks array in reverse order to make sure
+    # Iterate over the body of the board to make sure
     # the iterator steps upon the block most recently stacked
-    blocks.reverse_each.with_index do |block, index|
-      if block_is_under_drop_block?(drop_block, block)
-        # IF there is a block UNDER the current block
-        # Set the y coord and break out of the block.
-        drop_block.y = block.y - 2
+    body.each_with_index do |row, index|
+      if block_under_drop_block?(drop_block, row)
+        drop_block.y = index - 2
         break
       else
         # There is NO block under the current block(we are at the last element)
