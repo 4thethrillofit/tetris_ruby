@@ -19,38 +19,5 @@ describe Player do
     end
   end
 
-  describe 'Integration' do
-    it "debugz" do
-      board = Game.new.board
-      board.add_block
-      board.move_block_right
-      board.move_block_right
-      board.drop_block
-
-      board.add_block
-      board.move_block_left
-      board.drop_block
-
-      board.add_block
-      board.drop_block
-      board.render
-
-      board.add_block
-      board.move_block_right
-      board.move_block_right
-      board.move_block_right
-      board.drop_block
-
-      board.add_block
-      board.move_block_right
-      board.move_block_right
-      board.move_block_right
-      board.move_block_left
-      # board.move_block_left
-      board.drop_block
-      board.render
-    end
-  end
-
   # Not going to test #play_game here, please run tetris.rb
 end
