@@ -4,7 +4,7 @@ NOTE: this game is NOT played by human, but a random/simple AI (the Player objec
 
 To run: type `ruby tetris.rb`
 
-Right now the AI simply makes 10 random moves, nothing more.
+Right now the AI simply makes random moves until she loses.
 
 Dependencies
 ==============
