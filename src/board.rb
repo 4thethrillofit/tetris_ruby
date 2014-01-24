@@ -19,7 +19,7 @@ class Board
   def add_block
     block = Block.new(@max_x)
     @blocks.push(block)
-    update!
+    # update!
   end
 
   def drop_block
